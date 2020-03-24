@@ -15,7 +15,7 @@ export const selectionSort = array => {
 			let arrayItem = _array[counter],
 				smallestValue = arrayItem,
 				smallestIndex = counter;
-			for (let j = counter; j < length; j++) {
+			for (let j = counter + 1; j < length; j++) {
 				if (_array[j] < smallestValue) {
 					smallestValue = _array[j];
 					smallestIndex = j;

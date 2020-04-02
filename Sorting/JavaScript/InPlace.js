@@ -1,6 +1,6 @@
 /***
  * In-place Algorithm
- * to rever the array
+ * to reverse the array
  */
 export const reverseArray = arr => {
     if (arr && arr.constructor == Array && arr.length > 1) {

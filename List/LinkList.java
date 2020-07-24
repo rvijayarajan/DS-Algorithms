@@ -40,6 +40,7 @@ public class LinkList {
 
         list.reverse();
         list.reverseGroup(3);
+        list.sort();
 
 		node = list.head;
 		while(node != null) {
@@ -81,6 +82,7 @@ public class LinkList {
 
         dlist.reverse();
         dlist.reverseGroup(3);
+        dlist.sort();
 
         node = dlist.head;
         Node node2 = null;

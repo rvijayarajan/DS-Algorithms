@@ -119,6 +119,68 @@ public class LinkedList {
         return leftNode;
     }
 
+    public void sort() {
+        this.head = this.mergeSort(this.head);
+    }
+
+    private Node mergeSort(Node head) {
+        // If the list has no or one element, there is no sorting required
+        if(head == null || head.next == null) {
+            return head;
+        }
+
+        // get the middle of list
+        Node middle = getMiddle(head);
+        Node nextofmiddle = middle.next;
+
+        // set the next of middle node to null 
+        middle.next = null; 
+  
+        // Apply mergeSort on left list 
+        Node left = mergeSort(head); 
+
+        // Apply mergeSort on right list 
+        Node right = mergeSort(nextofmiddle); 
+
+        // Merge the left and right lists 
+        Node sortedlist = sortedMerge(left, right);
+
+        return sortedlist;
+    }
+
+    private Node sortedMerge(Node a, Node b) 
+    { 
+        Node result = null; 
+        /* Base cases */
+        if (a == null) 
+            return b; 
+        if (b == null) 
+            return a; 
+  
+        /* Pick either a or b, and recur */
+        if (a.data <= b.data) { 
+            result = a; 
+            result.next = sortedMerge(a.next, b); 
+        } 
+        else { 
+            result = b; 
+            result.next = sortedMerge(a, b.next); 
+        } 
+        return result; 
+    }
+
+    private Node getMiddle(Node head) {
+        if(head == null) {
+            return head;
+        }
+        Node slow = head, fast = head;
+        while(fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+
     public void swapNodes(int k1, int k2) {
         Node prev = this.head;
         Node firstNode = null;

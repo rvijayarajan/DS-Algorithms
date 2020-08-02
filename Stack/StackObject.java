@@ -32,6 +32,16 @@ public class StackObject<T> {
         return this.head.data;
     }
 
+    public void sort() {
+        T temp = this.pop();
+        if(temp!=null && !this.isEmpty()) {
+            this.sort();
+        }
+        if(temp!=null) {
+            this.ascendingSort(temp);
+        }
+    }
+
     public void reverse() {
         T temp = this.pop();
         if(temp!=null && !this.isEmpty()) {
@@ -39,6 +49,25 @@ public class StackObject<T> {
         }
         if(temp!=null) {
             this.insertAtBottom(temp);
+        }
+    }
+
+    private void ascendingSort(T data) {
+        if(this.isEmpty()) {
+            this.push(data);
+            return;
+        }
+        if(!this.isEmpty()) {
+            T tempData = this.peek();
+            int recent = Integer.parseInt((String)tempData);
+            int actual = Integer.parseInt((String)data);
+            if(recent > actual) {
+                this.pop();
+                this.ascendingSort(data);
+                this.push(tempData);
+            } else {
+                this.push(data);    
+            }
         }
     }
 

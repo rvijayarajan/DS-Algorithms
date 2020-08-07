@@ -13,7 +13,7 @@ public class Stack {
                         node = node.next;
                 }
                 System.out.println("-------------------------------------");
-
+                System.out.println("Minimum Element "+stack.min()); 
                 System.out.println(stack.pop() + " popped from stack"); 
   
                 System.out.println("Top element is " + stack.peek());
@@ -26,5 +26,6 @@ public class Stack {
 			node = node.next;
 		}
 		System.out.println("-------------------------------------");
+                System.out.println("Minimum Element "+stack.min()); 
 	}
 }
